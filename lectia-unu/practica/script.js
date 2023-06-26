@@ -32,7 +32,7 @@ let weight = "88,3";
 let height = "1.75";
 
 const bmi = "";
-console.log(bmi); // 28.8
+// console.log(bmi); // 28.8
 // Use toFixed(1)
 
 /* Example 7 - Comparison operators and type casting */
