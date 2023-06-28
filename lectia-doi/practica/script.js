@@ -28,14 +28,17 @@ const userInput = prompt('Enter the number');
 
 
 Example 4 - Nested branches
-Write a script that compares the numbers in variables a and b. If both values greater than 100, then print the maximum of them to the console. Otherwise, the console should show the sum of the value b and the number 512.
+Write a script that compares the numbers in variables a and b.
+If both values greater than 100, then print the maximum of them to the console.
+Otherwise, the console should show the sum of the value b and the number 512.
 
 const a = 120;
 const b = 180;
 
 
 Example 5 - Link Formatting (endsWith)
-Write a script that checks if the value of the link variable ends symbol /. if not, add this character to the end of the link value. Use if...else construction.
+Write a script that checks if the value of the link variable ends symbol /. if not,
+add this character to the end of the link value. Use if...else construction.
 
 let link = 'https://my-site.com/about';
 // Write code below this line
@@ -45,7 +48,9 @@ console.log(link);
 
 
 Example 6 - Link formatting (includes and logical "AND")
-Write a script that checks if the value of the link variable ends by symbol /. If not, append this character to the end of the link value, but only if link contains the substring "my-site". Use construction if...else.
+Write a script that checks if the value of the link variable ends by symbol /.
+If not, append this character to the end of the link value, but only if link
+contains the substring "my-site". Use construction if...else.
 
 let link = 'https://somesite.com/about';
 // Write code below this line
@@ -103,7 +108,8 @@ if (daysUntilDeadline === 0) {
 
 
 Example 11 - The for loop
-Write a for loop that prints numbers in ascending order to the browser console from min to max, but only if the number is a multiple of 5.
+Write a for loop that prints numbers in ascending order to the browser console
+from min to max, but only if the number is a multiple of 5.
 
 const max = 100;
 const min = 20;
