@@ -12,7 +12,3 @@ const calсulateAverage = (...args) => {
 };
 
 console.log(calсulateAverage(10, 20, 30, 40));
-
-for (let index = 0; index < 100; index = index + 100) {
-  console.log(index);
-}
