@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intrebari</title>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+    <script>
+      /* First Question
+      const first = { propA: 5, propB: 10, propC: 50 };
+      const second = { propC: 15, propD: 20 };
+
+      const third = { ...first, ...second };
+      console.log(third); // { propA: 5, propB: 10, propC: 15, propD: 20 }
+
+      const fourth = { ...second, ...first };
+      console.log(fourth);
+
+      */
+      /* Second Question
+      const props = {
+        propA: "test",
+        propB: "testing",
+      };
+
+      // Colectare
+      const { ...splitProps } = props;
+      function multiply(...args) {
+        console.log(args); // o matrice cu toate argumentele
+      }
+
+      console.log(props);
+      console.log(splitProps);
+
+      console.log(multiply(1, 2, 3));
+      console.log(firstProp);
+      console.log(splitProps);
+
+      // Pulverizare
+      const newProps = { ...props, test: "test" };
+      console.log(newProps);
+*/
+      /* Third Question 
+
+      const bookShelf = {
+        books: ["The Last Kingdom"],
+        getBooks: function () {
+          console.log(this);
+        },
+      };
+
+      bookShelf.getBooks();
+*/
+      /* Fourth Question 
+      const book = {
+        key: "avion",
+        titlu: "Cartea",
+        autor: "George Cosbuc",
+      };
+
+      const key = "autor";
+
+      console.log(book["key"]);
+      console.log(book.key);
+      console.log(book[key]); // book["titlu"] -> "Cartea"
+      */
+      /*
+      function foo(a, b, c, ...args) {
+        // a = 1
+        // b = 2
+        // c = 3
+        // args = [4, 5]
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        console.log(args);
+      }
+
+      foo(1, 2, 3, 4, 5);
+      */
+
+      /*
+      function foo({ username } = { username: "Test" }) {
+        console.log(username);
+      }
+
+      foo();*/
+
+      /*
+      const numereA = [1, 2, 3, 4, 5];
+      const numereB = [...numereA];
+
+      numereA.push(6);
+      console.log(numereA);
+      console.log(numereB);*/
+
+      /*
+      const obiectA = { propA: 1, propB: 2 };
+      const obiectB = { ...obiectA };
+      console.log(obiectA);
+      console.log(obiectB);
+      obiectA.propA = 2;
+      console.log(obiectA);
+      console.log(obiectB);*/
+
+      /*
+      const masina = {
+        numarDeRoti: 4,
+        producator: "Opel",
+        model: "Astra",
+      };
+
+      console.log(
+        `Modelul ${masina.model} al ${masina.producator} are ${masina.numarDeRoti} roti.`
+      );
+
+      let { model, producator } = masina;
+      producator = "BMW";
+      console.log(`Modelul ${avion} al ${producator}`);
+      console.log(avion);
+      console.log(masina.model);*/
+
+      const firstBook = {
+        title: "The Last Kingdom",
+        coverImage:
+          "https://images-na.ssl-images-amazon.com/images/I/51b5YG6Y1rL.jpg",
+      };
+
+      const {
+        title: firstTitle,
+        coverImage: firstCoverImage = "https://via.placeholder.com/640/480",
+      } = firstBook;
+      /*
+      console.log(firstTitle); // The Last Kingdom
+      console.log(firstCoverImage); // https://images-na.ssl-images-amazon.com/images/I/51b5YG6Y1rL.jpg
+*/
+      /*
+      const secondBook = {
+        title: "Amintiri din copilărie",
+        autor: "Ion Creanga",
+      };
+
+      const {
+        title: secondTitle,
+        coverImage: secondCoverImage,
+        autor, // autor: autor
+      } = secondBook;
+
+      console.log(autor);
+      //console.log(secondTitle); // Amintiri din copilărie
+      //console.log(secondCoverImage); // https://via.placeholder.com/640/480*/
+
+      function printInfoAboutCar(infoAboutCar) {
+        const { marca, producator } = infoAboutCar;
+        // marca = "M3";
+        // producator = "BMW";
+      }
+
+      const test = {
+        producator: "BMW",
+        marca: "M3",
+        culoareExterior: "Gri",
+        tip: "Sedan",
+        motorizare: "2.0",
+        cutie: "Automata",
+      };
+
+      printInfoAboutCar(test);
+    </script>
+  </body>
+</html>
