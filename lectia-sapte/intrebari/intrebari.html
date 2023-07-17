@@ -9,166 +9,101 @@
   <body>
     <div id="wrapper"></div>
     <script>
-      /* First Question
-      const first = { propA: 5, propB: 10, propC: 50 };
-      const second = { propC: 15, propD: 20 };
+      /*
+      // Codul din librarie
+      function processCall(recipient, onAvailable, onNotAvailable) {
+        // recipient = "Andrei"
+        // onAvailable = takeCall
+        // onNotAvailable = activateAnsweringMachine
 
-      const third = { ...first, ...second };
-      console.log(third); // { propA: 5, propB: 10, propC: 15, propD: 20 }
+        // processCall("Vasile", takeCall, leaveHoloMessage);
+        // recipient  = "Vasile"
+        // onAvailable = takeCall
+        // onNotAvailable = leaveHoloMessage
 
-      const fourth = { ...second, ...first };
-      console.log(fourth);
+        // Simulăm disponibilitatea unui abonat cu un număr aleatoriu
+        const isRecipientAvailable = Math.random() > 0.5;
 
+        if (!isRecipientAvailable) {
+          onNotAvailable(recipient);
+          return;
+        }
+
+        onAvailable(recipient);
+      }
+
+      // Codul tau
+      function takeCall(name) {
+        console.log(
+          `Vă conectăm cu utilizatorul ${name}, va rugăm să așteptați...`
+        );
+      }
+
+      function activateAnsweringMachine(name) {
+        console.log(
+          `Abonatul ${name} nu este disponibil, va rugăm să lăsați un mesaj.`
+        );
+        // Logica de activare a robotului telefonic
+      }
+
+      function leaveHoloMessage(name) {
+        console.log(
+          `Abonatul ${name} nu este disponibil, înregistrați o hologramă.`
+        );
+        // Logica de înregistrare a unei holograme
+      }
+
+      processCall("Andrei", takeCall, activateAnsweringMachine);
+      processCall("Vasile", takeCall, leaveHoloMessage);
+
+      function printValue(value) {
+        console.log(`Valoarea din array este: ${value}`);
+      }
+
+      function printValue(value) {
+        const isEven = value % 2 === 0;
+
+        console.log(
+          `Numarul este par? ${value} ${isEven ? "Este par" : "Nu este par"}`
+        );
+      }
+
+      function faCevaCuFiecareElement(array, action) {
+        // array = dateleMele
+        // action = printValue
+        for (let i = 0; i < array.length; i += 1) {
+          action(array[i]);
+        }
+      }
+
+      // Parsăm printValue ca și funcție callback
+      const dateleMele = [1, 2, 5, 7];
+
+      faCevaCuFiecareElement(dateleMele, printValue);
       */
-      /* Second Question
-      const props = {
-        propA: "test",
-        propB: "testing",
-      };
 
-      // Colectare
-      const { ...splitProps } = props;
-      function multiply(...args) {
-        console.log(args); // o matrice cu toate argumentele
+      // Înainte
+      /*
+      const nameList = ["Andrei", "Vasile", "Ion"];
+
+      for (let i = 0; i < nameList.length; i++) {
+        console.log(`${i} - ${nameList[i]}`);
       }
 
-      console.log(props);
-      console.log(splitProps);
-
-      console.log(multiply(1, 2, 3));
-      console.log(firstProp);
-      console.log(splitProps);
-
-      // Pulverizare
-      const newProps = { ...props, test: "test" };
-      console.log(newProps);
-*/
-      /* Third Question 
-
-      const bookShelf = {
-        books: ["The Last Kingdom"],
-        getBooks: function () {
-          console.log(this);
-        },
-      };
-
-      bookShelf.getBooks();
-*/
-      /* Fourth Question 
-      const book = {
-        key: "avion",
-        titlu: "Cartea",
-        autor: "George Cosbuc",
-      };
-
-      const key = "autor";
-
-      console.log(book["key"]);
-      console.log(book.key);
-      console.log(book[key]); // book["titlu"] -> "Cartea"
+      nameList.forEach((name, index) => {
+        console.log(`${index} - ${name}`);
+      });
       */
       /*
-      function foo(a, b, c, ...args) {
-        // a = 1
-        // b = 2
-        // c = 3
-        // args = [4, 5]
-        console.log(a);
-        console.log(b);
-        console.log(c);
-        console.log(args);
-      }
+      function add(parametru1, parametru2, parametru3) {
+        console.log(parametru1 + parametru2 + parametru3);
+      }*/
 
-      foo(1, 2, 3, 4, 5);
-      */
-
-      /*
-      function foo({ username } = { username: "Test" }) {
-        console.log(username);
-      }
-
-      foo();*/
-
-      /*
-      const numereA = [1, 2, 3, 4, 5];
-      const numereB = [...numereA];
-
-      numereA.push(6);
-      console.log(numereA);
-      console.log(numereB);*/
-
-      /*
-      const obiectA = { propA: 1, propB: 2 };
-      const obiectB = { ...obiectA };
-      console.log(obiectA);
-      console.log(obiectB);
-      obiectA.propA = 2;
-      console.log(obiectA);
-      console.log(obiectB);*/
-
-      /*
-      const masina = {
-        numarDeRoti: 4,
-        producator: "Opel",
-        model: "Astra",
+      const add = (parametru1, parametru2, parametru3) => {
+        console.log(parametru1 + parametru2 + parametru3);
       };
 
-      console.log(
-        `Modelul ${masina.model} al ${masina.producator} are ${masina.numarDeRoti} roti.`
-      );
-
-      let { model, producator } = masina;
-      producator = "BMW";
-      console.log(`Modelul ${avion} al ${producator}`);
-      console.log(avion);
-      console.log(masina.model);*/
-
-      const firstBook = {
-        title: "The Last Kingdom",
-        coverImage:
-          "https://images-na.ssl-images-amazon.com/images/I/51b5YG6Y1rL.jpg",
-      };
-
-      const {
-        title: firstTitle,
-        coverImage: firstCoverImage = "https://via.placeholder.com/640/480",
-      } = firstBook;
-      /*
-      console.log(firstTitle); // The Last Kingdom
-      console.log(firstCoverImage); // https://images-na.ssl-images-amazon.com/images/I/51b5YG6Y1rL.jpg
-*/
-      /*
-      const secondBook = {
-        title: "Amintiri din copilărie",
-        autor: "Ion Creanga",
-      };
-
-      const {
-        title: secondTitle,
-        coverImage: secondCoverImage,
-        autor, // autor: autor
-      } = secondBook;
-
-      console.log(autor);
-      //console.log(secondTitle); // Amintiri din copilărie
-      //console.log(secondCoverImage); // https://via.placeholder.com/640/480*/
-
-      function printInfoAboutCar(infoAboutCar) {
-        const { marca, producator } = infoAboutCar;
-        // marca = "M3";
-        // producator = "BMW";
-      }
-
-      const test = {
-        producator: "BMW",
-        marca: "M3",
-        culoareExterior: "Gri",
-        tip: "Sedan",
-        motorizare: "2.0",
-        cutie: "Automata",
-      };
-
-      printInfoAboutCar(test);
+      add(1, 2, 3);
     </script>
   </body>
 </html>
