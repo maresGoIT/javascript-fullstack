@@ -80,7 +80,3 @@ export const cars = [
     onSale: false,
   },
 ];
-
-export function CarsData() {
-  return cars;
-}
