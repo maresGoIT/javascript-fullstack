@@ -1,14 +1,13 @@
-function fnA() {
-  console.log("fn A");
-}
+console.log("incepe aici");
+const test = {
+  a: 12,
+};
 
-function fnB() {
-  console.log("fn B");
-}
+test.b = 16;
+console.log("opreste aici");
 
-function foo() {
-  fnA();
-  fnB();
-}
+test.b = 17;
 
-foo();
+for (let i = 0; i < test.b; i++) {
+  console.log(i);
+}
