@@ -8,6 +8,84 @@
   </head>
   <body>
     <div id="wrapper"></div>
-    <script></script>
+    <script>
+      // // Clasa - Sabloane
+      // class Persoana {
+      //   constructor(name, age) {
+      //     this.name = name;
+      //     this.age = age;
+      //   }
+
+      //   showName() {
+      //     console.log(this.name);
+      //   }
+
+      //   isValid() {
+      //     this.age > 18;
+      //   }
+      // }
+
+      // // Instanta Andrei
+      // //const andrei = new Persoana("Andrei", 18);
+      // const andrei = {
+      //   name: "Andrei",
+      //   age: 16,
+
+      //   showName() {
+      //     console.log(this.name);
+      //   },
+      // };
+
+      // console.log(andrei);
+
+      // // Instanta Ioana
+      // const ioana = new Persoana("Ioana", 24);
+
+      // ioana.age = 25;
+
+      // console.log(andrei);
+      // console.log(ioana);
+
+      class User {
+        #password;
+        #email;
+
+        constructor({ name, email, password }) {
+          this.name = name;
+          this.#email = email;
+          this.#password = password;
+        }
+
+        getEmail() {
+          return this.#email;
+        }
+
+        changeEmail(newEmail) {
+          this.#email = newEmail;
+        }
+      }
+
+      const andrei = new User({
+        name: "Andrei",
+        email: "andrei@mail.com",
+        password: "andrei123",
+      });
+
+      andrei.changeEmail("andrei@supermail.com");
+      console.log(andrei.getEmail()); // andrei@supermail.com
+      console.log(andrei); // Va apărea o eroare deoarece este o proprietate privată
+
+      class Animal {
+        // name
+        // makeSound() { console.log('make sound'); }
+        run() {}
+      }
+
+      class Cat extends Animal {
+        makeSound() {
+          console.log("miau");
+        }
+      }
+    </script>
   </body>
 </html>
