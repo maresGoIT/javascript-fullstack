@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intrebari</title>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+    <script>
+      /*
+                                  let mesaj = '';
+
+                                  if (isAge > 18) {
+                                    mesaj = 'Esti major!';
+                                  } else {
+                                    mesaj = 'Esti minor!';
+                                  }
+
+                                  let mesaj = isAge > 18 ? 'Esti major!' : 'Esti minor!';
+                            */
+
+      /*
+                            function one() {
+                              console.log("1");
+                              two();
+                            }
+
+                            function two() {
+                              console.log("2");
+                              console.trace("Call Stack for function doi");
+                              three();
+                            }
+
+                            function three() {
+                              console.log("3");
+                              console.trace("Call Stack for function three");
+                            }
+
+                            one();
+
+                            let a = 11;
+
+                            while (a > 10) {
+                              console.log(a); // Infinite Loop
+                              //a--;
+                            }
+
+                            const obj = {
+                              test: "abc",
+                            };
+
+            const user = {
+              name: "Jacques Gluke",
+              stats: {
+                followers: 5603,
+                views: 4827,
+                likes: 1308,
+              },
+            };
+
+            const videos = {
+              name: "Jacques Gluke - Video 1",
+              stats: {
+                views: 100,
+                likes: 1308,
+              },
+            };
+
+            const { views } = user.stats; // -> views = user.stats.views
+            const { views: userViews } = user.stats; // -> userViews = user.stats.views
+            const { views: videoViews } = videos.stats; // -> videoViews = videos.stats.views
+
+            console.log(user.stats.views);
+            console.log(userViews);
+            console.log(videoViews);
+
+                      const car = {
+                        speed: 120,
+                      };
+
+                      const { speed: test, weight = 0 } = car;
+
+                      console.log(test);
+                      console.log(weight);
+                      */
+      /*
+            function multiply(paramA, ...param) {
+              console.log(paramA);
+              console.log(param);
+              console.log(arguments);
+            }
+
+            multiply(5, 7, 9, 11);
+            function makeTask(data) {
+              const completed = false;
+              const category = "General";
+              const priority = "Normal";
+
+              console.log({ completed: false, ...data });
+
+              // Change code below this line
+              return {
+                completed: completed,
+                category: category,
+                priority: priority,
+                ...data,
+              };
+              // Change code above this line
+            }
+            */
+
+      /*console.log(makeTask({}));
+            console.log(
+              makeTask({
+                category: "Homemade",
+                priority: "Low",
+                text: "Take out the trash",
+              })
+            );
+            console.log(
+              makeTask({
+                category: "Finance",
+                text: "Take interest",
+              })
+            );
+            console.log(
+              makeTask({
+                priority: "Low",
+                text: "Choose shampoo",
+              })
+            );
+            console.log(
+              makeTask({
+                text: "Buy bread",
+              })
+            );
+
+            const arr = [
+              {
+                name: "TestA",
+                age: 12,
+              },
+              {
+                name: "TestB",
+                age: 12,
+              },
+              {
+                name: "TestC",
+                age: 12,
+              },
+            ];
+
+            for (let i = 0; i < arr.length; ++i) {
+              const { name, age } = arr[i];
+
+              console.log(name);
+              console.log(age);
+            }
+
+            for (const { name, age } of arr) {
+              console.log(name);
+              console.log(age);
+            }
+
+            arr.forEach(({ age, name }, index) => {
+              console.log(age);
+              console.log(name);
+            });*/
+
+      /*
+            const arrA = ["TestA", "TestB", "TestC"];
+            arrB = [...arrA];
+            console.log(arrA[0]);
+            arrA[0] = "TestModificat";
+            console.log(arrA[0]);
+            console.log(arrB[0]);
+
+
+            // Callback function, passed as a parameter in the higher order function
+            function functiaB() {
+              console.log("I am  a callback function");
+              console.trace("Functia");
+            }
+
+            // higher order function HOF
+            function functiaA(func) {
+              console.log("I am higher order function");
+              func();
+            }
+
+            functiaA(functiaB);
+        */
+
+      const atTheOldToad = {
+        potions: [
+          { name: "Speed potion", price: 460 },
+          { name: "Dragon breath", price: 780 },
+          { name: "Stone skin", price: 520 },
+        ],
+        // Change code below this line
+        getPotions() {
+          return this.potions;
+        },
+        addPotion(newPotion) {
+          const indexOfPotion = this.potions.indexOf(newPotion);
+
+          if (indexOfPotion > -1) {
+            console.error("Deja exista potiunea");
+
+            return;
+          }
+
+          this.potions.push(newPotion);
+        },
+        removePotion(potionToRemove) {
+          const potionIndex = this.potions.findIndex(
+            (elem) => elem.name === potionToRemove
+          );
+
+          if (potionIndex === -1) {
+            return `Potion ${potionName} is not in inventory!`;
+          }
+
+          this.potions.splice(potionIndex, 1);
+        },
+        updatePotionName(oldName, newName) {
+          const potionIndex = this.potions.findIndex(
+            (elem) => elem.name === oldName
+          );
+
+          if (potionIndex === -1) {
+            return `Potion ${oldName} is not in inventory!`;
+          }
+
+          /*
+          this.potions[potionIndex] = {
+            ...this.potions[potionIndex],
+            name: newName,
+          };
+          */
+          this.potions.splice(potionIndex, 1, {
+            name: newName,
+            price: this.potions[potionIndex].price,
+          });
+        },
+        // Change code above this line
+      };
+      console.log(atTheOldToad.getPotions());
+      atTheOldToad.addPotion({ name: "Invisibility", price: 620 });
+      console.log(atTheOldToad.getPotions());
+      atTheOldToad.removePotion("Invisibility");
+      console.log(atTheOldToad.getPotions());
+      atTheOldToad.updatePotionName("Speed potion", "Javascript potion");
+      console.log(atTheOldToad.getPotions());
+    </script>
+  </body>
+</html>
