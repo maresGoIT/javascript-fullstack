@@ -1,11 +1,3 @@
-const listElement = document.getElementById("list");
-
-if (!listElement) {
-  console.log("Elementul nu a fost gasit");
-} else {
-  console.log(listElement.children.length);
-}
-
 /*
 # Task 1
 
@@ -17,6 +9,47 @@ const technologies = ["Javascript", "Python", "CSS", "HTML"];
 4. Write the text from the array inside the list items
 5. Place li inside ul
 6. Place ul tag with items on the page
+*/
+
+const technologies = ["Javascript", "Python", "CSS", "HTML"];
+const containerEl = document.querySelector("#container");
+const listEl = document.createElement("ul"); // -> <ul></ul>
+
+/*
+const firstElFromList = document.createElement("li");
+firstElFromList.innerText = technologies[0];
+listEl.append(firstElFromList);
+
+for (let i = 1; i < technologies.length; i++) {
+  const li = document.createElement("li"); // -> <li></li>
+  li.innerText = technologies[i]; // <li>Python</li>
+  firstElFromList.after(li);
+}
+
+
+const newList = document.createElement("ul");
+const newListItem = document.createElement("li");
+newListItem.textContent = "Test";
+
+newList.append(newListItem);
+listEl.after(newList);
+*/
+containerEl.append(listEl);
+
+technologies.forEach((technology) => {
+  const li = document.createElement("li"); // -> <li></li>
+
+  li.innerText = technology; // <li>Python</li>
+  listEl.prepend(li); //<ul><li>Javascript</li><li>Python</li></ul>
+});
+
+/*
+technologies.forEach((technology) => {
+  const li = document.createElement("li"); // -> <li></li>
+
+  li.innerText = technology; // <li>Python</li>
+  listEl.append(li); //<ul><li>Javascript</li><li>Python</li></ul>
+});
 */
 
 /*
@@ -43,4 +76,39 @@ const colors = [
     color: "#fff00f",
   },
 ];
+*/
+/*
+const colors = [
+  {
+    label: "Primary Button",
+    value: "#ff0000",
+    isPrimary: true,
+  },
+  {
+    label: "Click Me",
+    value: "#00ff00",
+    isPrimary: false,
+  },
+  {
+    label: "Yellow",
+    value: "#fff00f",
+    isPrimary: false,
+  },
+];
+
+const containerEl = document.querySelector("#container");
+
+colors.forEach((color) => {
+  const buttonEl = document.createElement("button"); // -> <button></button>
+  containerEl.append(buttonEl);
+
+  buttonEl.textContent = color.label;
+
+  if (color.isPrimary) {
+    buttonEl.innerHTML = `<span onclick="alert(123)"><a href="https://google.com">${color.label}</a></span>`;
+    buttonEl.classList.add("primary-button");
+  } else {
+    buttonEl.style.backgroundColor = color.value;
+  }
+});
 */
