@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="../../css/main.min.css" />
 
     <title>Javascript</title>
+    <style>
+      .icon {
+        display: block;
+        height: 64px;
+        width: 64px;
+        background: greenyellow;
+        margin: 16px 0;
+      }
+
+      .icon--red {
+        background: red;
+      }
+
+      form {
+        margin-top: 16px;
+        border: 1px solid #454545;
+        padding: 16px;
+      }
+
+      form.error {
+        background: lightcoral;
+        border-color: red;
+      }
+    </style>
   </head>
   <body>
     <main class="container example-page">
@@ -19,18 +43,60 @@
           inainte de inchiderea tag-ului &lt;body&gt;
         </p>
       </section>
-      <!--
-        <ul class="list">
-          <li>Javascript</li>
-          <li>Python</li>
-          <li>CSS</li>
-          <li>HTML</li>
-        </ul>
-        -->
+      <!-- Example One -->
+      <div>
+        <span class="icon icon--red"></span>
+        <button class="toggle-button">Toggle</button>
+      </div>
 
-      <div id="container"></div>
+      <!-- Example Two -->
+      <div id="container">
+        <form name="login" action="" id="loginForm">
+          <h1>Login</h1>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-control"
+            placeholder="Enter your Username..."
+          />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Enter your Password..."
+          />
+          <button type="submit">Submit</button>
+          <span class="form-errors"></span>
+        </form>
+
+        <form
+          name="register"
+          action=""
+          id="registerForm"
+          class="form--register"
+        >
+          <h1>Register</h1>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-control"
+            placeholder="Enter your Username..."
+          />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Enter your Password..."
+          />
+          <button type="submit">Submit</button>
+          <span class="form-errors"></span>
+        </form>
+      </div>
     </main>
-    <!-- CTRL + / -->
     <script type="module" src="./script.js"></script>
   </body>
 </html>

@@ -5,9 +5,100 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intrebari</title>
+    <style>
+      .container {
+        width: 1200px;
+        margin: 0 auto;
+      }
+
+      .error {
+        border: 1px solid red;
+      }
+    </style>
   </head>
   <body>
-    <div id="wrapper"></div>
-    <script></script>
+    <div id="wrapper" class="container">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non odio facere
+      laborum vel dolores minus quidem inventore pariatur illum blanditiis.
+      Voluptatibus accusantium unde perferendis reiciendis. Perspiciatis eveniet
+      accusamus eius corrupti.
+
+      <button id="button">Buton Simplu</button>
+      <form class="register-form" autocomplete="off">
+        <input type="text" name="username" placeholder="Username" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <script>
+      /*
+      const button = document.querySelector("button");
+
+      button.addEventListener("click", () => console.dir("test"));
+      */
+      /*
+      const mango = {
+        username: "Mango",
+        showUsername() {
+          console.log(this);
+          console.log(`My username is: ${this.username}`);
+        },
+      };
+
+      const btn = document.querySelector("#button");
+
+      // ✅ Funcționează
+      mango.showUsername();
+
+      // ❌ this se va referi la button, dacă showUsername este folosit ca callback
+      /*
+      btn.addEventListener("click", mango.showUsername); // nu funcționează
+      console.dir(btn);
+      */
+      /*
+      // ✅ Să nu uităm să legăm contextul metodelor obiectului
+      btn.addEventListener("click", mango.showUsername.bind(mango));
+      console.dir(btn);
+*/
+      /*
+      document.addEventListener("keydown", (e) => {
+        console.log("Tasta apasata: " + e.key);
+        if (e.ctrlKey && e.key === "s") {
+          e.preventDefault();
+        }
+
+        if (e.ctrlKey && e.altKey && e.key === "s") {
+          e.preventDefault();
+          console.log("My save function");
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key === "c") {
+          e.preventDefault();
+          alert("Nu poti copia textul.");
+        }
+      });
+
+      const a = 3;
+      console.log("Number of categories: ${a}");
+      console.log(`Number of categories: ${a}`); // -> Number of categories: 3
+      */
+      const form = document.querySelector(".register-form");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        console.dir(event.currentTarget);
+        const { elements } = event.currentTarget;
+        const username = elements.username.value;
+
+        if (username.length > 10) {
+          console.error("Numele introdus este prea lung.");
+          form.classList.add("error");
+        } else {
+          form.classList.remove("error");
+        }
+        //console.log(username.value, password.value);
+      });
+    </script>
   </body>
 </html>
