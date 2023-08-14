@@ -35,9 +35,10 @@ const priceEl = document.querySelector("#price");
 const quantityEl = document.querySelector("#quantity");
 const amountDisplayEl = document.querySelector("#amount");
 const totalDisplayEl = document.querySelector("#total");
-const labelEl = document.querySelector(".form label:last-of-type");
 
-console.log(labelEl);
+// Query Selector functioneaza exact ca si selectorii in CSS
+// const labelEl = document.querySelector(".form label:last-of-type");
+// console.log(labelEl);
 
 formEl.addEventListener("change", (e) => {
   if (e.target === priceEl) {
