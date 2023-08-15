@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/main.min.css" />
+
+    <title>Javascript</title>
+    <style>
+      body {
+        height: 1000vh;
+      }
+
+      .counter {
+        position: sticky;
+        top: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box {
+        margin: 10px;
+        font-size: 24px;
+        padding: 10px 15px;
+        border: 3px solid orange;
+        border-radius: 8px;
+      }
+
+      .input {
+        margin: 30px;
+        display: inline-block;
+      }
+
+      form {
+        width: 200px;
+        margin-left: 50px;
+        text-align: center;
+      }
+
+      fieldset {
+        border-radius: 10px;
+        border-color: orange;
+        background-color: rgba(0, 0, 0, 0.239);
+      }
+
+      form label {
+        display: block;
+        margin: 10px;
+      }
+
+      form label input {
+        display: block;
+        margin: 0 auto;
+        border-radius: 10px;
+        outline: none;
+        padding: 5px;
+        border-color: orange;
+        margin-top: 10px;
+      }
+
+      .wrong {
+        border-color: red;
+      }
+
+      .correct {
+        border-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="counter">
+      <h2>Scroll</h2>
+      <div class="box">
+        Without Throttling: <span id="outputScrollStandart">0</span>
+      </div>
+      <div class="box">
+        With Throttling: <span id="outputScrollThrottling">0</span>
+      </div>
+    </div>
+
+    <!-- ======================= -->
+
+    <!-- <div class="counter">
+      <h2>Resize</h2>
+      <div class="box">Without Throttling: <span id="outputResizeStandart">0</span></div>
+      <div class="box">With Throttling: <span id="outputResizeThrottling">0</span></div>
+    </div> -->
+
+    <!-- ======================= -->
+
+    <!-- <label class="input">
+      Enter your name
+      <input type="text" placeholder="Name" id="nameInput" />
+    </label> -->
+
+    <!-- ======================= -->
+
+    <!-- <form id="signInForm">
+      <fieldset>
+        <legend>Sign In</legend>
+        <label>
+          Enter your login
+          <input type="text" placeholder="Login" />
+        </label>
+        <label>
+          Enter your password
+          <input type="password" placeholder="Password" />
+        </label>
+      </fieldset>
+    </form> -->
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+      integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
+</html>

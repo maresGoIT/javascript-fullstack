@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intrebari</title>
+    <style>
+      .panel {
+        background: lightblue;
+        border: 1px solid #77939c;
+      }
+
+      .panel-header {
+        background: #5656aa;
+        padding: 16px 8px;
+        color: white;
+        user-select: none;
+      }
+
+      .panel-header-icon {
+        display: inline-flex;
+        height: 20px;
+        width: 20px;
+        background: white;
+        color: black;
+        font-weight: bold;
+        border: 1px solid lightblue;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .panel-body {
+        padding: 16px 8px;
+        display: none;
+      }
+
+      .is-visible {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="panel">
+      <div class="panel-header">
+        Produs - Mai multe informatii
+        <span class="panel-header-icon"><</span>
+        <button class="btn btn-primary">Sterge</button>
+      </div>
+
+      <div class="panel-body">I'm the first content!</div>
+    </div>
+
+    <script>
+      const panelBodyEl = document.querySelector(".panel-body");
+      const panelHeaderEl = document.querySelector(".panel-header");
+      const buttonEl = document.querySelector(".btn.btn-primary");
+      const panelHeaderIndicatorEl =
+        document.querySelector(".panel-header-icon");
+
+      buttonEl.addEventListener("click", (e) => {
+        e.stopPropagation();
+        deleteProduct();
+      });
+
+      panelHeaderEl.addEventListener("click", () => {
+        const isVisible = panelBodyEl.classList.contains("is-visible");
+        panelHeaderIndicatorEl.innerHTML = isVisible ? ">" : "x";
+        panelBodyEl.classList.toggle("is-visible");
+      });
+
+      function deleteProduct(event) {
+        console.log("Sterge produs");
+      }
+    </script>
+  </body>
+</html>

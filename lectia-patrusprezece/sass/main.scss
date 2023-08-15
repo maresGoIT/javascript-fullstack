@@ -1,0 +1,15 @@
+@import url("https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css");
+@import "./base/reset";
+@import "./base/fonts";
+@import "./base/variables";
+@import "./base/typography";
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  height: 1000vh; // for scroll
+}
