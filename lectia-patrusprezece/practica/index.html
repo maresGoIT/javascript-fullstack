@@ -8,7 +8,7 @@
 
     <title>Javascript</title>
     <style>
-      body {
+      /* body {
         height: 1000vh;
       }
 
@@ -26,7 +26,7 @@
         padding: 10px 15px;
         border: 3px solid orange;
         border-radius: 8px;
-      }
+      } */
 
       .input {
         margin: 30px;
@@ -61,31 +61,40 @@
       }
 
       .wrong {
+        background: lightcoral;
         border-color: red;
       }
 
       .correct {
+        background: lightgreen;
         border-color: green;
       }
     </style>
   </head>
   <body>
-    <div class="counter">
+    <!-- <div class="counter">
       <h2>Scroll</h2>
       <div class="box">
-        Without Throttling: <span id="outputScrollStandart">0</span>
+        Without Throttling: <span id="outputScrollStandard">0</span>
       </div>
       <div class="box">
         With Throttling: <span id="outputScrollThrottling">0</span>
       </div>
-    </div>
+    </div> -->
 
     <!-- ======================= -->
-
-    <!-- <div class="counter">
+    <!-- 
+    <div class="counter">
       <h2>Resize</h2>
-      <div class="box">Without Throttling: <span id="outputResizeStandart">0</span></div>
-      <div class="box">With Throttling: <span id="outputResizeThrottling">0</span></div>
+      <div class="box">
+        Without Throttling: <span id="outputResizeStandard">0</span>
+      </div>
+      <div class="box">
+        With Throttling: <span id="outputResizeThrottling">0</span>
+      </div>
+      <div class="box">
+        With Debounce: <span id="outputResizeDebounce">0</span>
+      </div>
     </div> -->
 
     <!-- ======================= -->
@@ -97,7 +106,7 @@
 
     <!-- ======================= -->
 
-    <!-- <form id="signInForm">
+    <form id="signInForm">
       <fieldset>
         <legend>Sign In</legend>
         <label>
@@ -109,7 +118,7 @@
           <input type="password" placeholder="Password" />
         </label>
       </fieldset>
-    </form> -->
+    </form>
 
     <script
       type="text/javascript"
