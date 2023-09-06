@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intrebari</title>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+    <script>
+      /*
+            const usersSend = [
+              {
+                name: "Steve",
+                friends: ["Alex", "Toni"],
+              },
+              {
+                name: "Bogdan",
+                friends: ["Alex", "Ion"],
+              },
+            ];
+
+            function onlyUnique(value, index, array) {
+              return array.indexOf(value) === index;
+            }
+
+            const getFriends = (users) => {
+              let allFriends = [];
+
+              for (let i = 0; i < users.length; i++) {
+                allFriends.push(users[i].friends);
+              }
+
+              console.log(allFriends.flatMap((a) => a).filter(onlyUnique));
+            };
+
+            console.log(
+              getFriends([
+                {
+                  name: "Bogdan",
+                  friends: ["Alex", "Ion"],
+                },
+                {
+                  name: "Steve",
+                  friends: ["Alex", "Toni"],
+                },
+              ])
+            );
+            /*
+              (users)
+
+
+
+            // usage example:
+            var friends = ['Alex', 'John', 'Steve', 'Alex', 'Steve'];
+            var unique = a.filter(onlyUnique);
+              */
+      /*
+      const customer = {
+        name: "John",
+        address: "123 Main Street",
+        phoneNumber: "555-1234",
+      };
+      const pizzaPalace = {
+        pizzas: ["Supercheese", "Smoked", "Four meats"],
+        // Change code below this line
+        checkPizza(pizzaName) {
+          return this.pizzas.includes(pizzaName);
+        },
+        order(pizzaName) {
+          const isPizzaAvailable = this.checkPizza(pizzaName);
+
+          if (!isPizzaAvailable) {
+            return `Sorry, there is no pizza named «${pizzaName}»`;
+          }
+
+          return `Order accepted, preparing «${pizzaName}» pizza for ${customer.name}.`;
+        },
+        // Change code above this line
+      };
+
+      console.log(pizzaPalace.order("Smoked"));
+      console.log(pizzaPalace.order("Hawaiian"));*/
+
+      /*
+      const bookShelf = {
+        authors: ["Tudor Arghezi", "Mihai Eminescu"],
+        getAuthors() {
+          return this.authors;
+        },
+        addAuthor(authorName) {
+          this.authors.push(authorName);
+        },
+      };
+
+      console.log(bookShelf.getAuthors()); // ["Tudor Arghezi", "Mihai Eminescu"]
+      bookShelf.addAuthor("I.L. Caragiale");
+      console.log(bookShelf.getAuthors()); // ["Tudor Arghezi", "Mihai Eminescu", "I.L. Caragiale"]
+      */
+
+      /*
+      var age = 25;
+
+      function getGuestAge(mesaj) {
+        console.log(`${mesaj}: ${this.age}.`);
+      }
+
+      const vasile = {
+        age: 60,
+      };
+
+      const georgiana = {
+        age: 20,
+      };
+
+      getGuestAge.call(georgiana, "Varsta este");
+      getGuestAge.call(vasile, "Varsta este");
+      getGuestAge("Varsta ta este");
+*/
+
+      function greet(clientName) {
+        console.log(`${clientName}, bun venit în serviciul «${this.service}».`);
+      }
+
+      const steam = {
+        service: "Steam",
+      };
+
+      const test = {
+        service: "Test",
+      };
+
+      const steamGreeter = greet.bind(steam);
+      const testGreeter = greet.bind(test);
+
+      //greet.call(steam, "Andrei");
+
+      steamGreeter("Vasile"); // "Vasile, bun venit în serviciul «Steam»."
+      steamGreeter("Ion");
+    </script>
+  </body>
+</html>
