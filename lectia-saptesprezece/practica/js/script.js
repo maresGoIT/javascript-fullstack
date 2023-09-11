@@ -1,39 +1,36 @@
-// for (let i = 3; i > 0; i--) {
-//     const delay = i * 1000;
-//     setTimeout(() => console.log(i), delay);
+// for (let i = 0; i < 3; i++) {
+//   const delay = i * 1000;
+//   setTimeout(() => console.log(i), delay);
 // }
 
-//!==============
+// //!==============
 
-// setTimeout(() => console.log(3), 3000);
-// setTimeout(() => console.log(2), 2000);
+// setTimeout(() => console.log(0), 0);
 // setTimeout(() => console.log(1), 1000);
+// setTimeout(() => console.log(2), 2000);
 
 //!==============
-
-// for (let i = 3; i > 0; i--) { // i = 3
-//     const delay = i * 1000; // delay = 3000
-//     setTimeout(() => console.log(3), 3000);
+// for (let i = 3; i > 0; i--) {
+//   // i = 3
+//   const delay = i * 1000; // delay = 3000
+//   setTimeout(() => console.log('a'), 3000);
 // }
 
-// for (let i = 3; i > 0; i--) { // i = 2
-//     const delay = i * 1000; // delay = 2000
-//     setTimeout(() => console.log(2), 2000);
+// for (let i = 3; i > 0; i--) {
+//   // i = 2
+//   const delay = i * 1000; // delay = 2000
+//   setTimeout(() => console.log('b'), 2000);
 // }
 
-// for (let i = 3; i > 0; i--) { // i = 1
-//     const delay = i * 1000; // delay = 1000
-//     setTimeout(() => console.log(1), 1000);
+// for (let i = 3; i > 0; i--) {
+//   // i = 1
+//   const delay = i * 1000; // delay = 1000
+//   setTimeout(() => console.log('c'), 1000);
 // }
-
 //!==============
 
 // Write a New Year's countdown timer that can be stopped by clicking the **Stop** button
 // Styles and markup can be taken here - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_countdown
-
-// const timeEl = document.getElementById("time");
-// const stopBtnEl = document.getElementById("stopBtn");
-// const continueBtnEl = document.getElementById("continueBtn");
 
 /*
 New Year - January 1 00:00 2024
@@ -45,47 +42,57 @@ we will use setInterval() to run the counter
 2. from the milliseconds obtained in step 1, we will extract the number of days, hours, minutes and seconds remaining until the New Year
 3. show this data to the user on the page
 */
+const timeEl = document.getElementById('time');
+const stopBtnEl = document.getElementById('stopBtn');
+const continueBtnEl = document.getElementById('continueBtn');
+const newYearDate = new Date(`January 1, ${new Date().getFullYear() + 1}`);
 
-// let isTimerRun = true;
-// const newYearDate = new Date(`Jan 1, ${new Date().getFullYear() + 1}`);
+let intervalId = setInterval(calculateTimeLeftToNY, 1000);
+let isTimerRunning = true;
 
-// countDownTimeToNY();
-// let timerId = setInterval(countDownTimeToNY, 1000);
+stopBtnEl.addEventListener('click', () => {
+  stopInterval();
+  if (!isTimerRunning) {
+    continueBtnEl.disabled = false;
+    continueBtnEl.addEventListener('click', continueInterval);
+  }
+});
 
-// stopBtnEl.addEventListener("click", () => {
-//     stopInterval();
-//     if (!isTimerRun) {
-//         continueBtnEl.disabled = false;
-//         continueBtnEl.addEventListener("click", continueInterval);
-//     }
-// });
+function calculateTimeLeftToNY() {
+  const now = Date.now();
+  const nextYear = new Date().getFullYear() + 1;
+  const newYearDate = new Date(`January 1, ${nextYear}`);
+  const diff = newYearDate - now; // MS
 
-// function countDownTimeToNY() {
-//     const now = Date.now();
-//     const diff = newYearDate - now; // how many milliseconds are left until the New Year
+  if (diff < 0) {
+    stopInterval();
+    console.error('Data este in trecut.');
+    timeEl.textContent = 'An nou fericit!';
 
-//     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-//     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-//     const minutes = Math.floor((diff / (1000 * 60)) % 60);
-//     const seconds = Math.floor((diff / 1000) % 60);
+    return;
+  }
 
-//     timeEl.textContent = `${days} d. ${hours} h. ${minutes} m. ${seconds} s.`;
+  const { days, hours, minutes, seconds } = formatDateTime(diff);
 
-//     if (diff <= 0) {
-//         stopInterval();
-//         timeEl.textContent = "Happy New Year!";
-//     }
-// }
+  timeEl.textContent = `${days} d. ${hours} h. ${minutes} m. ${seconds} s.`;
+}
 
-// function continueInterval() {
-//     isTimerRun = true;
-//     continueBtnEl.disabled = true;
-//     alert("Continue");
-//     timerId = setInterval(countDownTimeToNY, 1000);
-// }
+function formatDateTime(diff) {
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
 
-// function stopInterval() {
-//     isTimerRun = false;
-//     clearInterval(timerId);
-//     alert("The timer has been stopped!");
-// }
+  return { days, hours, minutes, seconds };
+}
+
+function stopInterval() {
+  isTimerRunning = false;
+  clearInterval(intervalId);
+}
+
+function continueInterval() {
+  isTimerRunning = true;
+  continueBtnEl.disabled = true;
+  intervalId = setInterval(calculateTimeLeftToNY, 1000);
+}
