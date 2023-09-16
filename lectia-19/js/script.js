@@ -1,72 +1,44 @@
-import LoadMoreBtn from "./components/LoadMoreBtn.js";
-import NewsApi from "./NewsApi.js";
+import API from './api.js';
 
-const form = document.getElementById("form");
-const loadMoreBtn = new LoadMoreBtn({
-    selector: "#loadMoreBtn",
-    isHidden: true,
-});
+const form = document.getElementById('form');
 
-const newsApi = new NewsApi();
-
-form.addEventListener("submit", onSubmit);
-loadMoreBtn.button.addEventListener("click", fetchNews);
+form.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const form = e.currentTarget;
-    newsApi.searchQuery = form.elements.news.value.trim();
-    clearNewsList();
-    newsApi.resetPage();
-    loadMoreBtn.show();
+  const form = e.currentTarget;
+  const inputValue = form.elements.news.value;
 
-    fetchNews().finally(() => form.reset());
-}
+  API.getNews(inputValue)
+    .then(({ articles }) => {
+      if (articles.length === 0) throw new Error('No data');
 
-function fetchNews() {
-    loadMoreBtn.disable();
-    return newsApi
-        .getNews()
-        .then(({ articles }) => {
-            if (articles.length === 0) throw new Error("No data");
-
-        return articles.reduce(
-            (markup, article) => createMarkup(article) + markup,
-            ""
-        );
+      return articles.reduce((markup, article) => createMarkup(article) + markup, '');
     })
-    .then((markup) => {
-        updateNewsList(markup);
-        loadMoreBtn.enable();
-    })
-    .catch(onError);
+    // .then((markup) => updateNewsList(markup));
+    .then(updateNewsList)
+    .catch(onError)
+    .finally(() => form.reset());
 }
 
 function createMarkup({ author, title, description, url, urlToImage }) {
-    return `
+  return `
         <div class="article-card">
-            <img src=${urlToImage} class="article-img">
             <h2 class="article-title">${title}</h2>
-            <h3 class="article-author">${author || "Anonym"}</h3>
+            <h3 class="article-author">${author || 'Anonym'}</h3>
+            <img src=${urlToImage} class="article-img">
             <p class="article-description">${description}</p>
             <a href=${url} class="article-link" target="_blank">Read more</a>
         </div>
-        
         `;
 }
 
-function clearNewsList() {
-    document.getElementById("articlesWrapper").innerHTML = "";
-}
-
 function updateNewsList(markup) {
-    document
-        .getElementById("articlesWrapper")
-        .insertAdjacentHTML("beforeend", markup);
+  document.getElementById('articlesWrapper').innerHTML = markup;
 }
 
 function onError(err) {
-    console.error(err);
-    updateNewsList("<p>Articles not found</p>");
+  console.error(err);
+  updateNewsList('<p>Articles not found</p>');
 }
