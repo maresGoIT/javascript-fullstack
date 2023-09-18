@@ -1,5 +1,4 @@
 import API from './api.js';
-import data from './data.js';
 
 const form = document.getElementById('form');
 const loadingSpinner = document.querySelector('#loading');
@@ -7,16 +6,19 @@ form.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
   e.preventDefault();
-
-  const form = e.currentTarget;
   const inputValue = form.elements.news.value;
 
-  API.getNews(inputValue)
+  loadData(inputValue, form);
+}
+
+function loadData(searchTerm) {
+  showLoading();
+
+  API.getNews(searchTerm)
     .then(data => {
-      console.dir(data);
       const { articles } = data;
-      loadingSpinner.classList.toggle('hidden');
-      if (articles.length === 0) {
+
+      if (articles?.length === 0) {
         showError();
       }
 
@@ -25,9 +27,17 @@ function onSubmit(e) {
     .then(markup => updateNewsList(markup))
     .catch(onError)
     .finally(() => {
-      loadingSpinner.classList.toggle('hidden');
+      hideLoading();
       form.reset();
     });
+}
+
+function hideLoading() {
+  loadingSpinner.classList.add('hidden');
+}
+
+function showLoading() {
+  loadingSpinner.classList.remove('hidden');
 }
 
 function createMarkup(article) {

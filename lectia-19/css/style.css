@@ -16,10 +16,6 @@ input[type='submit'] {
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
-}
-
 #articlesWrapper {
   margin-top: 10px;
   display: flex;
@@ -50,4 +46,41 @@ input[type='submit'] {
   background-color: rgba(45, 45, 233, 0.731);
   color: white;
   padding: 10px 20px;
+}
+
+#loading.hidden {
+  display: none;
+}
+
+#loading {
+  padding: 8px;
+  align-items: center;
+  display: flex;
+}
+
+.loading-spinner {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+}
+
+.loading-spinner:after {
+  content: ' ';
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 2px solid #3046ce;
+  border-color: #3046ce transparent #3046ce transparent;
+  animation: loading-spinner 1.2s linear infinite;
+}
+
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

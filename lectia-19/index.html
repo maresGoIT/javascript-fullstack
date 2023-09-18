@@ -11,7 +11,11 @@
       <input type="text" name="news" placeholder="Search news" autocomplete="off" />
       <input type="submit" value="Search" />
     </form>
-    <span id="loading"></span>
+    <div id="loading" class="hidden">
+      <div class="loading-spinner"></div>
+      Loading...
+    </div>
+
     <div id="articlesWrapper"></div>
 
     <script src="./js/script.js" type="module"></script>
