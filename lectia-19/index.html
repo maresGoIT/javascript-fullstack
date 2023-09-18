@@ -8,9 +8,10 @@
   </head>
   <body>
     <form id="form">
-      <input type="text" name="news" placeholder="Search news" />
+      <input type="text" name="news" placeholder="Search news" autocomplete="off" />
       <input type="submit" value="Search" />
     </form>
+    <span id="loading"></span>
     <div id="articlesWrapper"></div>
 
     <script src="./js/script.js" type="module"></script>
