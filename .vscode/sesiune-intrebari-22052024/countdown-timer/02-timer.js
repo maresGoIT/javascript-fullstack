@@ -43,7 +43,7 @@ function startCountdown(startDate, timerContainer) {
 
     if (timeRemaining < 0) {
       // Timpul a expirat
-      timerContainer.innerHTML = "Time's Up!";
+      timerContainer.innerHTML = 'Timpul a expirat';
       return;
     }
 
