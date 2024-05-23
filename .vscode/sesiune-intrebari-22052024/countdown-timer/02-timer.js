@@ -9,6 +9,8 @@
 const startButton = document.querySelector('[data-start]');
 const datetimePicker = document.getElementById('datetime-picker');
 
+const arrayToSort = [1, 451, 12, 1];
+
 // adaugam event pentru click pe buton
 startButton.addEventListener('click', () => {
   const chosenDate = datetimePicker.value; //get selected date
@@ -43,7 +45,7 @@ function startCountdown(startDate, timerContainer) {
 
     if (timeRemaining < 0) {
       // Timpul a expirat
-      timerContainer.innerHTML = "Time's Up!";
+      timerContainer.innerHTML = 'Timpul a expirat';
       return;
     }
 
